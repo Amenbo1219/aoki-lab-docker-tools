@@ -1,5 +1,6 @@
 #!/bin/sh
-bash /export/home/dockerd/docker-rootless-extras/dockerd-rootless-setuptool.sh install
+docker_rootless_dir="/export/home/dockerd/docker-rootless-extras"
+bash $docker_rootless_dir/dockerd-rootless-setuptool.sh install
 sleep 3
 export XDG_RUNTIME_DIR=/run/user/$UID
 export PATH=/usr/bin:$PATH
