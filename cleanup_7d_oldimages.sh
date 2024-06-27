@@ -27,4 +27,4 @@ for user in $(cut -d: -f1 /etc/passwd); do
     fi
 done
 
-echo "30日間使用していないDockerイメージのクリーンアップが完了しました"
+echo "7日間使用していないDockerイメージのクリーンアップが完了しました"
