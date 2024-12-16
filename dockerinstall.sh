@@ -1,4 +1,5 @@
 #!/bin/sh
+loginctl enable-linger $USER
 docker_rootless_dir="/export/home/dockerd/docker-rootless-extras"
 bash $docker_rootless_dir/dockerd-rootless-setuptool.sh install
 sleep 3
