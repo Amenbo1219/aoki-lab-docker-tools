@@ -5,7 +5,13 @@
 また，ROOTLESSのソースファイルが/export/home/dockerdに展開されている前提となります．
 
 このリポジトリには、Aoki Labで使用するDockerツールが含まれています。
-
+## 説明
+dockerinstall.sh：RootLessDockerのセットアップ
+dockercomposeinstall.sh：DockerComposeのセットアップ
+dockerstart.sh：Dockerクライアントの再起動
+dockerstop.sh：Dockerクライアントの停止
+untargz_addsleep.sh：tar.gzファイルの解凍
+unzip_addsleep.sh:Zipファイルの解凍
 ## インストール方法
 
 1. リポジトリをクローンします：
@@ -31,7 +37,18 @@ chmod 755 ~/bin/*.sh
 ```bash
 ./bin/add_path.sh
 ```
+5. 再ログインをします：
+```bash
+exit
+ssh ユーザー名@共有されたホスト情報
+```
 
+
+5. Dockerのセットアップ：
+```bash
+dockerinstall.sh
+dockercomposeinstall.sh
+```
 これで、Aoki Lab Docker Toolsのセットアップが完了しました。各ツールの使用方法については、個別のドキュメントを参照してください。
 
 Citations:
