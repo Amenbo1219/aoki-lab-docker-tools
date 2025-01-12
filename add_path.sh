@@ -1,15 +1,18 @@
 #!/bin/bash
-export PATH="$HOME/bin:$PATH"
-# 確認用メッセージ
-echo "Setting up bash auto-switch in ~/.profile or ~/.bash_profile..."
 
-# 追加する内容
-CONFIG="if [ -z \"\$BASH_VERSION\" ]; then
+PROFILE_FILE="$HOME/.profile"
+BASH_CHECK_CODE='if [ -z "$BASH_VERSION" ]; then
     exec /bin/bash
-fi"
+fi'
 
-# 対象ファイル（~/.profile を優先し、なければ ~/.bash_profile に追加）
-TARGET_FILE="$HOME/.profile"
-if [ ! -f "$TARGET_FILE" ]; then
-    TARGET_FILE="$HOME/.bash_profile"
+# ~/.profile にすでに該当するコードが存在するか確認
+if grep -qxF "$BASH_CHECK_CODE" "$PROFILE_FILE"; then
+    echo "The BASH check code is already present in $PROFILE_FILE. No changes made."
+else
+    # コードを追記
+    echo -e "\n# Automatically added to ensure Bash shell\n$BASH_CHECK_CODE" >> "$PROFILE_FILE"
+    echo "The BASH check code has been added to $PROFILE_FILE."
 fi
+export PATH="$HOME/bin:$PATH"
+export SHELL=/bin/bash
+exec $SHELL
