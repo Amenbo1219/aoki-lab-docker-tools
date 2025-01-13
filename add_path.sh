@@ -8,7 +8,7 @@ fi'
 #    echo "The BASH check code is already present in $PROFILE_FILE. No changes made."
 #else
     # コードを追記
-echo -e "\n# Automatically added to ensure Bash shell\n$BASH_CHECK_CODE" >> "$PROFILE_FILE"
+echo "\n# Automatically added to ensure Bash shell\n$BASH_CHECK_CODE" >> "$PROFILE_FILE"
 echo "The BASH check code has been added to $PROFILE_FILE."
 #fi
 export PATH="$HOME/bin:$PATH"
