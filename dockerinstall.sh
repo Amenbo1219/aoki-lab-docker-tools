@@ -11,8 +11,8 @@ systemctl --user enable docker
 systemctl --user start docker
 sleep 3
 mkdir -p ~/.config/docker
-echo "{\"data-root\":\"/var/tmp/$USER/\"}" > ~/.config/docker/daemon.json
-mkdir -p /var/tmp/$USER/
+echo "{\"data-root\":\"/docker-cache/$USER/\"}" > ~/.config/docker/daemon.json
+mkdir -p /docker-cache/$USER/
 sleep 1
 systemctl --user restart docker
 
