@@ -10,7 +10,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 TAR_FILE="$1"
-DEST_DIR="${2:-.}"  
+DEST_DIR="${2:-.}"
 
 BATCH_SIZE=25
 
@@ -18,13 +18,13 @@ SLEEP_TIME=5
 
 mkdir -p "$DEST_DIR"
 
-file_list=$(tar -tzf "$TAR_FILE")
+file_list=$(tar -tf "$TAR_FILE" --no-same-owner)
 
 counter=0
 
 for file in $file_list; do
     # 解凍する
-    tar --extract --gzip --file="$TAR_FILE" --directory="$DEST_DIR" "$file"
+    tar --extract --no-same-owner --file="$TAR_FILE" --directory="$DEST_DIR" "$file"
     echo "Extracted: $file"
 
     counter=$((counter + 1))
@@ -36,4 +36,3 @@ for file in $file_list; do
 done
 
 echo "All files processed!"
-
