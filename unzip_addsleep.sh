@@ -29,9 +29,9 @@ for file in $file_list; do
     unzip -o "$ZIP_FILE" "$file" -d "$DEST_DIR"
     echo "Unzipped: $file"
 
-    ((counter++))
+    counter=$((counter + 1))
 
-    if (( counter % BATCH_SIZE == 0 )); then
+    if [ $((counter % BATCH_SIZE)) -eq 0 ]; then
         echo "!!!DATA WRITTING!!!Sleeping for $SLEEP_TIME seconds..."
         sleep $SLEEP_TIME
     fi
