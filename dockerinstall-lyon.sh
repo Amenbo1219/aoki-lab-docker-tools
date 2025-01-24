@@ -1,12 +1,26 @@
 #!/bin/sh
-loginctl enable-linger $USER
-export XDG_RUNTIME_DIR=/run/user/$UID
+
+# Lingerを有効化
+loginctl enable-linger "$USER"
+
+# XDG_RUNTIME_DIRを設定
+export XDG_RUNTIME_DIR="/run/user/$UID"
+
+# 必要なディレクトリを作成
+if [ ! -d "$XDG_RUNTIME_DIR" ]; then
+    mkdir -p "$XDG_RUNTIME_DIR"
+    chmod 700 "$XDG_RUNTIME_DIR"
+    chown "$USER:$USER" "$XDG_RUNTIME_DIR"
+fi
+
+# dockerd-rootless-setuptoolの実行
 bash dockerd-rootless-setuptool.sh install
-sleep 3
-export PATH=/usr/bin:$PATH
-export DOCKER_HOST=unix:///run/user/$UID/docker.sock
-sleep 3
+
+# PATHとDOCKER_HOSTを設定
+export PATH="/usr/bin:$PATH"
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
+
+# Dockerサービスを設定
 systemctl --user enable docker
 systemctl --user start docker
-sleep 1
 systemctl --user restart docker
