@@ -7,16 +7,27 @@
 このリポジトリには、Aoki Labで使用するDockerツールが含まれています。
 ## 説明
 add_NAS_directory.sh:NASのショートカットをホームディレクトリに作成
+
 alldel.sh:Dockerのキャッシュデータ削除
+
 autodel_30d.sh:30日以後のキャッシュデータ削除(自動実行)
+
 contdel_Xd.sh:X日以降経過しているコンテナの削除
+
 dockercomposeinstall.sh:DockerComposeのインストール
+
 dockerinstall-lyon.sh:LyonとFermiのDocker環境構築
+
 dockerinstall.sh:ローカル環境のDocker環境構築
+
 dockerstart.sh:Dockerデーモンの起動
+
 dockerstop.sh:Dockerデーモンの停止
+
 imdel_Xd.sh:X日以降経過しているイメージの削除
+
 shell2bash.sh:シェルのBASH変更
+
 unXXX_addsleep.sh:圧縮ファイルの解凍
 
 
