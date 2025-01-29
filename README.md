@@ -16,7 +16,9 @@ contdel_Xd.sh:X日以降経過しているコンテナの削除
 
 dockercomposeinstall.sh:DockerComposeのインストール
 
-dockerinstall-lyon.sh:LyonとFermiのDocker環境構築
+dockerinstall-lyon.sh:LyonのDocker環境構築
+
+dockerinstall-fermi.sh:Fermi,内蔵ディスクのみを使ったのDocker環境構築
 
 dockerinstall.sh:ローカル環境のDocker環境構築
 
