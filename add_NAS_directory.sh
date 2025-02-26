@@ -13,8 +13,8 @@ mkdir -p "$SHORTCUT_DIR"
 ln -s "/export/home/$USERNAME" "$SHORTCUT_DIR/${USERNAME}"
 
 # Publicのショートカット
-ln -s "/export/public" "$SHORTCUT_DIR/Public"
+ln -s "/export/home/AokiShare" "$SHORTCUT_DIR/Public"
 
 echo "ショートカットを作成しました！"
 echo "  - ユーザー: $SHORTCUT_DIR/${USERNAME} → /export/home/$USERNAME"
-echo "  - Public:  $SHORTCUT_DIR/Public → /export/public"
+echo "  - Public:  $SHORTCUT_DIR/Public → /export/home/AokiShare"
